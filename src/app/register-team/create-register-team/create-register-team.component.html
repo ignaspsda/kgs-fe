@@ -1,0 +1,52 @@
+<div class="modal-dialog modal-dialog-centered" role="document">
+  <div  class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLongTitle">Create and register team</h5>
+      <div #closeButton data-dismiss="modal">
+        <button type="button" class="close" aria-label="Close" data-dismiss="modal" (click)="close()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    </div>
+    <div class="modal-body">
+      <div class="container-fluid">
+        <form [formGroup]="teamForm" (ngSubmit)="onSubmit()">
+          <div class="form-group text-center">
+            <div class="row justify-content-center">
+              <div class="col-sm-8">
+                <label for="teamName">Team name</label>
+                <input type="text" id="teamName" formControlName="teamName" class="form-control">
+              </div>
+            </div>
+            <hr>
+            <div class="row justify-content-center">
+              <div formArrayName="players">
+                <div class="form-group text-center">
+                  <div class="col-sm-12">
+                    <label>Players</label>
+                    <div *ngFor="let player of playersControls(); let i = index" [formGroupName]="i">
+                      <div class="input-group mb-3 input-group-sm text-center">
+                        <div class="input-group-prepend">
+                          <span for="playerName" class="input-group-text">Player name</span>
+                        </div>
+                        <input type="text" id="playerName" formControlName="playerName" class="form-control">
+                        <div class="input-group-prepend">
+                          <button type="button" class="btn btn-danger" [disabled]="i === 0" (click)="onDeletePlayer(i)">X</button>
+                        </div>
+                      </div>
+                    </div>
+                    <button type="button" class="btn btn-primary" (click)="addPlayer()" [disabled]="playersLimit()">Add player</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer justify-content-center">
+            <button type="button" class="btn btn-secondary" (click)="close()">Close</button>
+            <button type="submit" class="btn btn-primary" [disabled]="teamForm.invalid">Save changes</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,10 +1,10 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {AbstractControl, FormArray, FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {CreateTeam} from "../../../../../model/CreateTeam";
-import {TournamentService} from "../../../../../service/tournament.service";
-import {Tournament} from "../../../../../model/Tournament.";
-import {ModeEnum} from "../../../../../enum/ModeEnum";
-import {TeamService} from "../../../../../service/team.service";
+import {CreateTeam} from "../../models/CreateTeam";
+import {TournamentService} from "../../services/tournament.service";
+import {Tournament} from "../../models/Tournament.";
+import {ModeEnum} from "../../enum/ModeEnum";
+import {TeamService} from "../../services/team.service";
 
 @Component({
   selector: 'app-create-register-team',

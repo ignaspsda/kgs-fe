@@ -1,0 +1,15 @@
+.center-component {
+  display: flex;
+  justify-content: center;
+}
+
+.card-header{
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+
+}
+h4{
+  flex: 1;
+}

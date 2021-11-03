@@ -1,1 +1,16 @@
-<p>tournament-list works!</p>
+<div class="row justify-content-center">
+  <div *ngFor="let tournament of tournaments; let i = index">
+    <div *ngIf="i % 2 === 0">
+      <div class="row mb-4">
+        <div class="card-deck">
+            <app-tournament [tournament]="tournament"></app-tournament>
+            <div *ngIf="i + 1 < tournaments.length">
+              <app-tournament [tournament]="tournaments[i + 1]"></app-tournament>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

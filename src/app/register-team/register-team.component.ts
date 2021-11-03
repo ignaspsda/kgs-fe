@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {Team} from "../../../../model/Team";
-import {TeamService} from "../../../../service/team.service";
-import {TournamentService} from "../../../../service/tournament.service";
-import {Tournament} from "../../../../model/Tournament.";
-import {ModeEnum} from "../../../../enum/ModeEnum";
+import {Team} from "../models/Team";
+import {TeamService} from "../services/team.service";
+import {TournamentService} from "../services/tournament.service";
+import {Tournament} from "../models/Tournament.";
+import {ModeEnum} from "../enum/ModeEnum";
 
 @Component({
   selector: 'app-register-team',
@@ -12,7 +12,7 @@ import {ModeEnum} from "../../../../enum/ModeEnum";
 })
 export class RegisterTeamComponent implements OnInit {
 
-  tournament: Tournament = {id: 0, title: '', tournamentStartDate: new Date(), entryCost: '', mode: ModeEnum.MODE_SOLOS, numberOfTeams: 0};
+  tournament: Tournament = {id: 0, title: '', tournamentStartDate: new Date(), entryCost: 0, mode: ModeEnum.MODE_SOLOS, numberOfTeams: 0};
 
   selectedTeam: Team = {id: 0, name: ''};
 
@@ -58,6 +58,6 @@ export class RegisterTeamComponent implements OnInit {
   close(): void {
     this.errorMessage = '';
     this.teamAlreadyRegistered = false;
-    this.selectedTeam = {id: 0, name: '', players: []};
+    this.selectedTeam = {id: 0, name: '', playersList: []};
   }
 }

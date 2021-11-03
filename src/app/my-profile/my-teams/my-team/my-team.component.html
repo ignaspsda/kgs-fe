@@ -1,1 +1,35 @@
-<p>my-team works!</p>
+<div class="row justify-content-center bottom-buffer">
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-header float-left">
+        <h5>{{team.name}}</h5>
+      </div>
+      <div class="card-body">
+        <div *ngIf="team.playersList !== undefined && team.playersList.length > 0; then playersList else noPlayers"></div>
+        <ng-template #playersList>
+          <table class="table text-center">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Player name</th>
+                <th scope="col">Platform</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let player of team.playersList; let i = index">
+                  <th scope="row">{{i+1}}</th>
+                  <td>{{player.playerName}}</td>
+                  <td>-</td>
+                  <td><button type="button" class="btn btn-danger">X</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </ng-template>
+        <ng-template #noPlayers>
+          <h6 class="text-center">Team has no players</h6>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</div>

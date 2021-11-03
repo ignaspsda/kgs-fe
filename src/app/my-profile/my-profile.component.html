@@ -1,1 +1,66 @@
-<p>my-profile works!</p>
+<div class="row justify-content-center">
+  <div class="col-sm-12">
+    <h1 class="text-center">My profile component works!</h1>
+  </div>
+</div>
+
+<div class="row justify-content-center top-buffer">
+  <div class="col-sm-6">
+    <a [routerLink]="['my-tournaments']" style="cursor: pointer" class="card">
+      <div class="card-body">
+        <div class="float-left">
+          <h4>My Tournaments</h4>
+          <p>Manage your teams for upcoming tournaments</p>
+        </div>
+        <span class="float-right">
+          <img src="assets/icons/tournament-icon.png" alt="tournament">
+        </span>
+      </div>
+    </a>
+  </div>
+</div>
+<div class="row justify-content-center top-buffer">
+  <div class="col-sm-6">
+    <a [routerLink]="['my-stats']" style="cursor: pointer" class="card">
+      <div class="card-body">
+        <div class="float-left">
+          <h4>My Stats</h4>
+          <p>KD, assists, wins, etc</p>
+        </div>
+        <span class="float-right">
+          <img src="assets/icons/stats.png" alt="stats">
+        </span>
+      </div>
+    </a>
+  </div>
+</div>
+<div class="row justify-content-center top-buffer">
+  <div class="col-sm-6">
+    <a [routerLink]="['my-teams']" style="cursor: pointer" class="card">
+      <div class="card-body">
+        <div class="float-left">
+          <h4>My Teams</h4>
+          <p>Manage your teams</p>
+        </div>
+        <span class="float-right">
+        <img src="assets/icons/my-teams.png" alt="my-teams">
+      </span>
+      </div>
+    </a>
+  </div>
+</div>
+<div class="row justify-content-center top-buffer">
+  <div class="col-sm-6">
+    <a [routerLink]="['account-information']" style="cursor: pointer" class="card">
+      <div class="card-body">
+        <div class="float-left">
+          <h4>Account Information</h4>
+          <p>Manage your account information</p>
+        </div>
+        <span class="float-right">
+          <img src="assets/icons/my-account.png" alt="stats">
+        </span>
+      </div>
+    </a>
+  </div>
+</div>

@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import {Tournament} from "../model/tournament.model";
-import {TournamentService} from "../service/tournament.service";
+import {Component, Input, OnInit} from '@angular/core';
+import {Tournament} from "../../../models/Tournament.";
+import {ModeEnum} from "../../../enum/ModeEnum";
+import {TournamentService} from "../../../services/tournament.service";
 
 @Component({
   selector: 'app-tournament',
@@ -9,16 +10,13 @@ import {TournamentService} from "../service/tournament.service";
 })
 export class TournamentComponent implements OnInit {
 
-  tournaments: Tournament[] = [];
+  @Input() tournament: Tournament = { id: 0, title: '', tournamentStartDate: new Date(), entryCost: 0, mode: ModeEnum.MODE_SOLOS, numberOfTeams: 0 }
 
-  constructor(private tournamentService: TournamentService) { }
+  constructor(private tournamentService: TournamentService) {}
 
-  ngOnInit(): void {
-    this.getTournaments();
+  ngOnInit(): void { }
+
+  onRegisterTournament(): void {
+    this.tournamentService.tournament.next(this.tournament);
   }
-
-  getTournaments(): void {
-    this.tournamentService.getTournaments().subscribe(t => this.tournaments = t);
-  }
-
 }

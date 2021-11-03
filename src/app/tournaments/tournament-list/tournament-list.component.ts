@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Tournament} from "../../models/Tournament.";
+import {TournamentService} from "../../services/tournament.service";
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-tournament-list',
@@ -6,10 +9,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tournament-list.component.css']
 })
 export class TournamentListComponent implements OnInit {
+  tournaments: Tournament[] = [];
 
-  constructor() { }
+  constructor(private tournamentService: TournamentService) { }
 
   ngOnInit(): void {
+    this.tournamentService.getTournaments().subscribe(tournaments  => this.tournaments = tournaments);
   }
 
 }

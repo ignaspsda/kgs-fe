@@ -1,1 +1,25 @@
-<p>my-tournament works!</p>
+<div class="row justify-content-center bottom-buffer">
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-header text-center">
+        <h5>{{tournament.title}}</h5>
+      </div>
+      <div class="card-body text-center">
+        <div class="row">
+          <div class="col-sm-4">
+            <h6>Number Of Teams</h6>
+            <p>{{tournament.numberOfTeams}}</p>
+          </div>
+          <div class="col-sm-4">
+            <h6>Start Date</h6>
+            <p>{{tournament.tournamentStartDate | date: 'HH:mm yyyy-MM-dd'}}</p>
+          </div>
+          <div class="col-sm-4">
+            <h6>Entry cost</h6>
+            <p>{{tournament.entryCost}}€</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

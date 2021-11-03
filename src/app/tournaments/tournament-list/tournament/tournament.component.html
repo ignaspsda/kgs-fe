@@ -1,10 +1,22 @@
-<p>tournament works!</p>
+<div class="card flex-column h-100 text-center" style="width: 18rem;">
+    <div class="card-header">
+      <h4 class="my-0 font-weight-normal">{{ tournament.title }}</h4>
+    </div>
+    <p class="card-text">
+      Mode: {{tournament.mode}} <br>
+      Number of teams: {{tournament.numberOfTeams}} <br>
+      Start date: {{tournament.tournamentStartDate | date: 'HH:mm yyyy-MM-dd'}} <br>
+      Entry cost: {{tournament.entryCost}}
+    </p>
+  <div class="card-footer">
+    <input class="btn btn-secondary w-100" type="button" value="REGISTER" data-toggle="modal" data-target="#exampleModalCenter" (click)="onRegisterTournament()">
+  </div>
+</div>
 
-<div *ngFor="let tournament of tournaments">
-  <p>{{ tournament.title }}</p>
-  <p>{{ tournament.mode }}</p>
-  <p>{{ tournament.numberOfTeams }}</p>
-  <p>{{ tournament.tournamentStartDate }}</p>
-  <p>{{ tournament.entryCost }}</p>
-  <p>{{ tournament.id }}</p>
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <app-register-team></app-register-team>
+  <div class="modal fade" id="createRegister" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <app-create-register-team></app-create-register-team>
+  </div>
 </div>
